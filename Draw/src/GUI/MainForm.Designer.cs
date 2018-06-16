@@ -44,8 +44,10 @@
             this.DrawElipseSpeedButton = new System.Windows.Forms.ToolStripButton();
             this.AddTriangleSpeedButton = new System.Windows.Forms.ToolStripButton();
             this.GroupShapesButton = new System.Windows.Forms.ToolStripButton();
-            this.viewPort = new Draw.DoubleBufferedPanel();
             this.UnGroupShapesButton = new System.Windows.Forms.ToolStripButton();
+            this.viewPort = new Draw.DoubleBufferedPanel();
+            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
+            this.PickBackgroundColor = new System.Windows.Forms.ToolStripButton();
             this.mainMenu.SuspendLayout();
             this.statusBar.SuspendLayout();
             this.speedMenu.SuspendLayout();
@@ -128,7 +130,8 @@
             this.DrawElipseSpeedButton,
             this.AddTriangleSpeedButton,
             this.GroupShapesButton,
-            this.UnGroupShapesButton});
+            this.UnGroupShapesButton,
+            this.PickBackgroundColor});
             this.speedMenu.Location = new System.Drawing.Point(0, 24);
             this.speedMenu.Name = "speedMenu";
             this.speedMenu.Size = new System.Drawing.Size(693, 25);
@@ -185,6 +188,16 @@
             this.GroupShapesButton.Text = "GroupShapesButton";
             this.GroupShapesButton.Click += new System.EventHandler(this.GroupShapesButton_Click);
             // 
+            // UnGroupShapesButton
+            // 
+            this.UnGroupShapesButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.UnGroupShapesButton.Image = ((System.Drawing.Image)(resources.GetObject("UnGroupShapesButton.Image")));
+            this.UnGroupShapesButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.UnGroupShapesButton.Name = "UnGroupShapesButton";
+            this.UnGroupShapesButton.Size = new System.Drawing.Size(23, 22);
+            this.UnGroupShapesButton.Text = "UnGroupShapesButton";
+            this.UnGroupShapesButton.Click += new System.EventHandler(this.UnGroupShapesButton_Click);
+            // 
             // viewPort
             // 
             this.viewPort.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -197,15 +210,16 @@
             this.viewPort.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ViewPortMouseMove);
             this.viewPort.MouseUp += new System.Windows.Forms.MouseEventHandler(this.ViewPortMouseUp);
             // 
-            // UnGroupShapesButton
+            // PickBackgroundColor
             // 
-            this.UnGroupShapesButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.UnGroupShapesButton.Image = ((System.Drawing.Image)(resources.GetObject("UnGroupShapesButton.Image")));
-            this.UnGroupShapesButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.UnGroupShapesButton.Name = "UnGroupShapesButton";
-            this.UnGroupShapesButton.Size = new System.Drawing.Size(23, 22);
-            this.UnGroupShapesButton.Text = "UnGroupShapesButton";
-            this.UnGroupShapesButton.Click += new System.EventHandler(this.UnGroupShapesButton_Click);
+            this.PickBackgroundColor.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.PickBackgroundColor.Image = ((System.Drawing.Image)(resources.GetObject("PickBackgroundColor.Image")));
+            this.PickBackgroundColor.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.PickBackgroundColor.Name = "PickBackgroundColor";
+            this.PickBackgroundColor.Size = new System.Drawing.Size(23, 22);
+            this.PickBackgroundColor.Text = "toolStripButton1";
+            this.PickBackgroundColor.ToolTipText = "PickBackgroundColor";
+            this.PickBackgroundColor.Click += new System.EventHandler(this.PickBackgroundColor_Click);
             // 
             // MainForm
             // 
@@ -249,5 +263,7 @@
         private System.Windows.Forms.ToolStripButton AddTriangleSpeedButton;
         private System.Windows.Forms.ToolStripButton GroupShapesButton;
         private System.Windows.Forms.ToolStripButton UnGroupShapesButton;
+        private System.Windows.Forms.ToolStripButton PickBackgroundColor;
+        private System.Windows.Forms.ColorDialog colorDialog1;
     }
 }

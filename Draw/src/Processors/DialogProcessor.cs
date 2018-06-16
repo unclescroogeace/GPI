@@ -101,6 +101,14 @@ namespace Draw
             }
         }
 
+        public void SetFillColor(Color color)
+        {
+            foreach (var item in Selection)
+            {
+                item.FillColor = color;
+            }
+        }
+
         public void GroupSelected()
         {
             if (Selection.Count < 2) return;

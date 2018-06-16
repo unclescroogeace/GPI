@@ -75,5 +75,16 @@ namespace Draw
                 item.Move(dx, dy);
             }
         }
+
+        public override Color FillColor
+        {
+            set
+            {
+                foreach (var item in SubItems)
+                {
+                    item.FillColor = value;
+                }
+            }
+        }
     }
 }

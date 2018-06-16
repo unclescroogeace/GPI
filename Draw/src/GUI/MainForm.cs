@@ -102,5 +102,14 @@ namespace Draw
             statusBar.Items[0].Text = "Последно действие: Разгрупиране";
             viewPort.Invalidate();
         }
+
+        private void PickBackgroundColor_Click(object sender, EventArgs e)
+        {
+            if (colorDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                dialogProcessor.SetFillColor(colorDialog1.Color);
+                viewPort.Invalidate();
+            }
+        }
     }
 }
