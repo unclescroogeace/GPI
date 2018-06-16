@@ -47,11 +47,13 @@
             this.UnGroupShapesButton = new System.Windows.Forms.ToolStripButton();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.PickBackgroundColor = new System.Windows.Forms.ToolStripButton();
-            this.viewPort = new Draw.DoubleBufferedPanel();
             this.PickBorderColor = new System.Windows.Forms.ToolStripButton();
+            this.viewPort = new Draw.DoubleBufferedPanel();
+            this.trackBar1 = new System.Windows.Forms.TrackBar();
             this.mainMenu.SuspendLayout();
             this.statusBar.SuspendLayout();
             this.speedMenu.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.SuspendLayout();
             // 
             // mainMenu
@@ -211,6 +213,16 @@
             this.PickBackgroundColor.ToolTipText = "PickBackgroundColor";
             this.PickBackgroundColor.Click += new System.EventHandler(this.PickBackgroundColor_Click);
             // 
+            // PickBorderColor
+            // 
+            this.PickBorderColor.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.PickBorderColor.Image = ((System.Drawing.Image)(resources.GetObject("PickBorderColor.Image")));
+            this.PickBorderColor.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.PickBorderColor.Name = "PickBorderColor";
+            this.PickBorderColor.Size = new System.Drawing.Size(23, 22);
+            this.PickBorderColor.Text = "PickBorderColor";
+            this.PickBorderColor.Click += new System.EventHandler(this.PickBorderColor_Click);
+            // 
             // viewPort
             // 
             this.viewPort.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -223,21 +235,23 @@
             this.viewPort.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ViewPortMouseMove);
             this.viewPort.MouseUp += new System.Windows.Forms.MouseEventHandler(this.ViewPortMouseUp);
             // 
-            // PickBorderColor
+            // trackBar1
             // 
-            this.PickBorderColor.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.PickBorderColor.Image = ((System.Drawing.Image)(resources.GetObject("PickBorderColor.Image")));
-            this.PickBorderColor.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.PickBorderColor.Name = "PickBorderColor";
-            this.PickBorderColor.Size = new System.Drawing.Size(23, 22);
-            this.PickBorderColor.Text = "PickBorderColor";
-            this.PickBorderColor.Click += new System.EventHandler(this.PickBorderColor_Click);
+            this.trackBar1.Location = new System.Drawing.Point(201, 0);
+            this.trackBar1.Maximum = 255;
+            this.trackBar1.Name = "trackBar1";
+            this.trackBar1.Size = new System.Drawing.Size(104, 45);
+            this.trackBar1.TabIndex = 5;
+            this.trackBar1.TickStyle = System.Windows.Forms.TickStyle.None;
+            this.trackBar1.Value = 255;
+            this.trackBar1.Scroll += new System.EventHandler(this.trackBar1_Scroll);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(693, 423);
+            this.Controls.Add(this.trackBar1);
             this.Controls.Add(this.viewPort);
             this.Controls.Add(this.speedMenu);
             this.Controls.Add(this.statusBar);
@@ -253,6 +267,7 @@
             this.statusBar.PerformLayout();
             this.speedMenu.ResumeLayout(false);
             this.speedMenu.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -278,5 +293,6 @@
         private System.Windows.Forms.ToolStripButton PickBackgroundColor;
         private System.Windows.Forms.ColorDialog colorDialog1;
         private System.Windows.Forms.ToolStripButton PickBorderColor;
+        private System.Windows.Forms.TrackBar trackBar1;
     }
 }

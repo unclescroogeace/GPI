@@ -97,5 +97,14 @@ namespace Draw
                 }
             }
         }
+
+        public override void GroupOpacity(int opacity)
+        {
+            base.GroupOpacity(opacity);
+            foreach (var item in SubItems)
+            {
+                item.Opacity = opacity;
+            }
+        }
     }
 }

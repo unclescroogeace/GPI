@@ -46,6 +46,7 @@ namespace Draw
 			RectangleShape rect = new RectangleShape(new Rectangle(x,y,100,200));
 			rect.FillColor = Color.White;
             rect.BorderColor = Color.Black;
+            rect.Opacity = 255;
 
             ShapeList.Add(rect);
 		}
@@ -78,6 +79,7 @@ namespace Draw
             EllipseShape ellipse = new EllipseShape(new Rectangle(x, y, 200, 100));
             ellipse.FillColor = Color.White;
             ellipse.BorderColor = Color.Black;
+            ellipse.Opacity = 255;
 
             ShapeList.Add(ellipse);
         }
@@ -91,6 +93,7 @@ namespace Draw
             TriangleShape triangle = new TriangleShape(new Rectangle(x, y, 100, 200));
             triangle.FillColor = Color.White;
             triangle.BorderColor = Color.Black;
+            triangle.Opacity = 255;
 
             ShapeList.Add(triangle);
         }
@@ -177,6 +180,17 @@ namespace Draw
                 }
             }
             Selection = new List<Shape>();
+        }
+
+        internal void SetOpacity(int opacity)
+        {
+            
+            foreach (var item in Selection)
+            {
+                item.GroupOpacity(opacity);
+                item.Opacity = opacity;
+
+            }
         }
     }
 }

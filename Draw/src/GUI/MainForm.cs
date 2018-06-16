@@ -120,5 +120,12 @@ namespace Draw
                 viewPort.Invalidate();
             }
         }
+
+        private void trackBar1_Scroll(object sender, EventArgs e)
+        {
+            dialogProcessor.SetOpacity(trackBar1.Value);
+            statusBar.Items[0].Text = "Последно действие: Добавяне на прозрачност";
+            viewPort.Invalidate();
+        }
     }
 }

@@ -81,6 +81,13 @@ namespace Draw
             set { borderColor = value; }
         }
 
+        private int opacity;
+        public virtual int Opacity
+        {
+            get { return opacity; }
+            set { opacity = value; }
+        }
+
         #endregion
 
 
@@ -108,6 +115,11 @@ namespace Draw
         {
             Location = new PointF(Location.X + dx, Location.Y + dy);
 
+        }
+
+        public virtual void GroupOpacity(int opacity)
+        {
+            this.opacity = opacity;
         }
     }
 }
