@@ -43,8 +43,9 @@
             this.pickUpSpeedButton = new System.Windows.Forms.ToolStripButton();
             this.DrawElipseSpeedButton = new System.Windows.Forms.ToolStripButton();
             this.AddTriangleSpeedButton = new System.Windows.Forms.ToolStripButton();
-            this.viewPort = new Draw.DoubleBufferedPanel();
             this.GroupShapesButton = new System.Windows.Forms.ToolStripButton();
+            this.viewPort = new Draw.DoubleBufferedPanel();
+            this.UnGroupShapesButton = new System.Windows.Forms.ToolStripButton();
             this.mainMenu.SuspendLayout();
             this.statusBar.SuspendLayout();
             this.speedMenu.SuspendLayout();
@@ -126,7 +127,8 @@
             this.pickUpSpeedButton,
             this.DrawElipseSpeedButton,
             this.AddTriangleSpeedButton,
-            this.GroupShapesButton});
+            this.GroupShapesButton,
+            this.UnGroupShapesButton});
             this.speedMenu.Location = new System.Drawing.Point(0, 24);
             this.speedMenu.Name = "speedMenu";
             this.speedMenu.Size = new System.Drawing.Size(693, 25);
@@ -173,6 +175,16 @@
             this.AddTriangleSpeedButton.Text = "AddTriangleButton";
             this.AddTriangleSpeedButton.Click += new System.EventHandler(this.AddTriangleSpeedButton_Click);
             // 
+            // GroupShapesButton
+            // 
+            this.GroupShapesButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.GroupShapesButton.Image = ((System.Drawing.Image)(resources.GetObject("GroupShapesButton.Image")));
+            this.GroupShapesButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.GroupShapesButton.Name = "GroupShapesButton";
+            this.GroupShapesButton.Size = new System.Drawing.Size(23, 22);
+            this.GroupShapesButton.Text = "GroupShapesButton";
+            this.GroupShapesButton.Click += new System.EventHandler(this.GroupShapesButton_Click);
+            // 
             // viewPort
             // 
             this.viewPort.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -185,15 +197,15 @@
             this.viewPort.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ViewPortMouseMove);
             this.viewPort.MouseUp += new System.Windows.Forms.MouseEventHandler(this.ViewPortMouseUp);
             // 
-            // GroupShapesButton
+            // UnGroupShapesButton
             // 
-            this.GroupShapesButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.GroupShapesButton.Image = ((System.Drawing.Image)(resources.GetObject("GroupShapesButton.Image")));
-            this.GroupShapesButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.GroupShapesButton.Name = "GroupShapesButton";
-            this.GroupShapesButton.Size = new System.Drawing.Size(23, 22);
-            this.GroupShapesButton.Text = "GroupShapesButton";
-            this.GroupShapesButton.Click += new System.EventHandler(this.GroupShapesButton_Click);
+            this.UnGroupShapesButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.UnGroupShapesButton.Image = ((System.Drawing.Image)(resources.GetObject("UnGroupShapesButton.Image")));
+            this.UnGroupShapesButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.UnGroupShapesButton.Name = "UnGroupShapesButton";
+            this.UnGroupShapesButton.Size = new System.Drawing.Size(23, 22);
+            this.UnGroupShapesButton.Text = "UnGroupShapesButton";
+            this.UnGroupShapesButton.Click += new System.EventHandler(this.UnGroupShapesButton_Click);
             // 
             // MainForm
             // 
@@ -236,5 +248,6 @@
         private System.Windows.Forms.ToolStripButton DrawElipseSpeedButton;
         private System.Windows.Forms.ToolStripButton AddTriangleSpeedButton;
         private System.Windows.Forms.ToolStripButton GroupShapesButton;
+        private System.Windows.Forms.ToolStripButton UnGroupShapesButton;
     }
 }

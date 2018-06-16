@@ -95,5 +95,12 @@ namespace Draw
             statusBar.Items[0].Text = "Последно действие: Групиране";
             viewPort.Invalidate();
         }
+
+        private void UnGroupShapesButton_Click(object sender, EventArgs e)
+        {
+            dialogProcessor.UnGroup();
+            statusBar.Items[0].Text = "Последно действие: Разгрупиране";
+            viewPort.Invalidate();
+        }
     }
 }

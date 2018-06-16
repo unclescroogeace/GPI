@@ -140,5 +140,24 @@ namespace Draw
             ShapeList.Add(group);
 
         }
+
+        public void UnGroup()
+        {
+            for (int i = 0; i < Selection.Count; i++)
+            {
+                if (Selection[i].GetType().Equals(typeof(GroupShape)))
+                {
+                    GroupShape group = (GroupShape)Selection[i];
+                    ShapeList.Remove(group);
+                    ShapeList.AddRange(group.SubItems);
+                    group.SubItems.Clear();
+                    Selection[i] = null;
+                    group = null;
+                    ShapeList.Remove(Selection[i]);
+                    Selection.Remove(Selection[i]);
+                }
+            }
+            Selection = new List<Shape>();
+        }
     }
 }
