@@ -42,8 +42,9 @@
             this.drawRectangleSpeedButton = new System.Windows.Forms.ToolStripButton();
             this.pickUpSpeedButton = new System.Windows.Forms.ToolStripButton();
             this.DrawElipseSpeedButton = new System.Windows.Forms.ToolStripButton();
-            this.viewPort = new Draw.DoubleBufferedPanel();
             this.AddTriangleSpeedButton = new System.Windows.Forms.ToolStripButton();
+            this.viewPort = new Draw.DoubleBufferedPanel();
+            this.GroupShapesButton = new System.Windows.Forms.ToolStripButton();
             this.mainMenu.SuspendLayout();
             this.statusBar.SuspendLayout();
             this.speedMenu.SuspendLayout();
@@ -124,7 +125,8 @@
             this.drawRectangleSpeedButton,
             this.pickUpSpeedButton,
             this.DrawElipseSpeedButton,
-            this.AddTriangleSpeedButton});
+            this.AddTriangleSpeedButton,
+            this.GroupShapesButton});
             this.speedMenu.Location = new System.Drawing.Point(0, 24);
             this.speedMenu.Name = "speedMenu";
             this.speedMenu.Size = new System.Drawing.Size(693, 25);
@@ -161,6 +163,16 @@
             this.DrawElipseSpeedButton.Text = "DrawElipseButton";
             this.DrawElipseSpeedButton.Click += new System.EventHandler(this.DrawElipseSpeedButton_Click);
             // 
+            // AddTriangleSpeedButton
+            // 
+            this.AddTriangleSpeedButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.AddTriangleSpeedButton.Image = ((System.Drawing.Image)(resources.GetObject("AddTriangleSpeedButton.Image")));
+            this.AddTriangleSpeedButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.AddTriangleSpeedButton.Name = "AddTriangleSpeedButton";
+            this.AddTriangleSpeedButton.Size = new System.Drawing.Size(23, 22);
+            this.AddTriangleSpeedButton.Text = "AddTriangleButton";
+            this.AddTriangleSpeedButton.Click += new System.EventHandler(this.AddTriangleSpeedButton_Click);
+            // 
             // viewPort
             // 
             this.viewPort.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -173,15 +185,15 @@
             this.viewPort.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ViewPortMouseMove);
             this.viewPort.MouseUp += new System.Windows.Forms.MouseEventHandler(this.ViewPortMouseUp);
             // 
-            // AddTriangleSpeedButton
+            // GroupShapesButton
             // 
-            this.AddTriangleSpeedButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.AddTriangleSpeedButton.Image = ((System.Drawing.Image)(resources.GetObject("AddTriangleSpeedButton.Image")));
-            this.AddTriangleSpeedButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.AddTriangleSpeedButton.Name = "AddTriangleSpeedButton";
-            this.AddTriangleSpeedButton.Size = new System.Drawing.Size(23, 22);
-            this.AddTriangleSpeedButton.Text = "AddTriangleButton";
-            this.AddTriangleSpeedButton.Click += new System.EventHandler(this.AddTriangleSpeedButton_Click);
+            this.GroupShapesButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.GroupShapesButton.Image = ((System.Drawing.Image)(resources.GetObject("GroupShapesButton.Image")));
+            this.GroupShapesButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.GroupShapesButton.Name = "GroupShapesButton";
+            this.GroupShapesButton.Size = new System.Drawing.Size(23, 22);
+            this.GroupShapesButton.Text = "GroupShapesButton";
+            this.GroupShapesButton.Click += new System.EventHandler(this.GroupShapesButton_Click);
             // 
             // MainForm
             // 
@@ -223,5 +235,6 @@
 		private System.Windows.Forms.MenuStrip mainMenu;
         private System.Windows.Forms.ToolStripButton DrawElipseSpeedButton;
         private System.Windows.Forms.ToolStripButton AddTriangleSpeedButton;
+        private System.Windows.Forms.ToolStripButton GroupShapesButton;
     }
 }

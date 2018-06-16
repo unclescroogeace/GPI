@@ -88,5 +88,12 @@ namespace Draw
 		{
 			dialogProcessor.IsDragging = false;
 		}
+
+        private void GroupShapesButton_Click(object sender, EventArgs e)
+        {
+            dialogProcessor.GroupSelected();
+            statusBar.Items[0].Text = "Последно действие: Групиране";
+            viewPort.Invalidate();
+        }
     }
 }

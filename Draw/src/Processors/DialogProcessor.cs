@@ -100,5 +100,45 @@ namespace Draw
                 grfx.DrawRectangle(Pens.Black, item.Rectangle.Left - 3, item.Rectangle.Top - 3, item.Rectangle.Width + 6, item.Rectangle.Height + 6);
             }
         }
+
+        public void GroupSelected()
+        {
+            if (Selection.Count < 2) return;
+
+            float minX = float.PositiveInfinity;
+            float minY = float.PositiveInfinity;
+            float maxX = float.NegativeInfinity;
+            float maxY = float.NegativeInfinity;
+            foreach (var item in Selection)
+            {
+                if (minX > item.Location.X)
+                {
+                    minX = item.Location.X;
+                }
+                if (minY > item.Location.Y)
+                {
+                    minY = item.Location.Y;
+                }
+                if (maxX < item.Location.X + item.Width)
+                {
+                    maxX = item.Location.X + item.Width;
+                }
+                if (maxY < item.Location.Y + item.Height)
+                {
+                    maxY = item.Location.Y + item.Height;
+                }
+            }
+            var group = new GroupShape(new RectangleF(minX, minY, maxX - minX, maxY - minY));
+            group.SubItems = Selection;
+            foreach (var item in Selection)
+            {
+                ShapeList.Remove(item);
+            }
+
+            Selection = new List<Shape>();
+            Selection.Add(group);
+            ShapeList.Add(group);
+
+        }
     }
 }
