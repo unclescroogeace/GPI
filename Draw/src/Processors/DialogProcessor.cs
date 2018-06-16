@@ -148,9 +148,9 @@ namespace Draw
                 if (Selection[i].GetType().Equals(typeof(GroupShape)))
                 {
                     GroupShape group = (GroupShape)Selection[i];
-                    ShapeList.Remove(group);
                     ShapeList.AddRange(group.SubItems);
                     group.SubItems.Clear();
+                    ShapeList.Remove(group);
                     Selection[i] = null;
                     group = null;
                     ShapeList.Remove(Selection[i]);
