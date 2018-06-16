@@ -111,5 +111,14 @@ namespace Draw
                 viewPort.Invalidate();
             }
         }
+
+        private void PickBorderColor_Click(object sender, EventArgs e)
+        {
+            if (colorDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                dialogProcessor.SetBorderColor(colorDialog1.Color);
+                viewPort.Invalidate();
+            }
+        }
     }
 }

@@ -45,8 +45,9 @@ namespace Draw
 			
 			RectangleShape rect = new RectangleShape(new Rectangle(x,y,100,200));
 			rect.FillColor = Color.White;
+            rect.BorderColor = Color.Black;
 
-			ShapeList.Add(rect);
+            ShapeList.Add(rect);
 		}
 		
 		public Shape ContainsPoint(PointF point)
@@ -76,6 +77,7 @@ namespace Draw
 
             EllipseShape ellipse = new EllipseShape(new Rectangle(x, y, 200, 100));
             ellipse.FillColor = Color.White;
+            ellipse.BorderColor = Color.Black;
 
             ShapeList.Add(ellipse);
         }
@@ -88,6 +90,7 @@ namespace Draw
 
             TriangleShape triangle = new TriangleShape(new Rectangle(x, y, 100, 200));
             triangle.FillColor = Color.White;
+            triangle.BorderColor = Color.Black;
 
             ShapeList.Add(triangle);
         }
@@ -106,6 +109,14 @@ namespace Draw
             foreach (var item in Selection)
             {
                 item.FillColor = color;
+            }
+        }
+
+        public void SetBorderColor(Color color)
+        {
+            foreach (var item in Selection)
+            {
+                item.BorderColor = color;
             }
         }
 

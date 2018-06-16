@@ -49,7 +49,7 @@ namespace Draw.src.Model
 
             Point[] p = { new Point((int)Rectangle.X + ((int)Rectangle.Width / 2), (int)Rectangle.Y), new Point((int)Rectangle.X, (int)(Rectangle.Y + Rectangle.Height)), new Point((int)(Rectangle.X + Rectangle.Width), (int)(Rectangle.Y + Rectangle.Height)) };
             grfx.FillPolygon(new SolidBrush(FillColor), p);
-            grfx.DrawPolygon(Pens.Black, p);
+            grfx.DrawPolygon(new Pen(BorderColor), p);
             
         }
     }

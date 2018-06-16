@@ -86,5 +86,16 @@ namespace Draw
                 }
             }
         }
+
+        public override Color BorderColor
+        {
+            set
+            {
+                foreach (var item in SubItems)
+                {
+                    item.BorderColor = value;
+                }
+            }
+        }
     }
 }

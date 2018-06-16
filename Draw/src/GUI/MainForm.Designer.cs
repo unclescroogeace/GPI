@@ -45,9 +45,10 @@
             this.AddTriangleSpeedButton = new System.Windows.Forms.ToolStripButton();
             this.GroupShapesButton = new System.Windows.Forms.ToolStripButton();
             this.UnGroupShapesButton = new System.Windows.Forms.ToolStripButton();
-            this.viewPort = new Draw.DoubleBufferedPanel();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.PickBackgroundColor = new System.Windows.Forms.ToolStripButton();
+            this.viewPort = new Draw.DoubleBufferedPanel();
+            this.PickBorderColor = new System.Windows.Forms.ToolStripButton();
             this.mainMenu.SuspendLayout();
             this.statusBar.SuspendLayout();
             this.speedMenu.SuspendLayout();
@@ -131,7 +132,8 @@
             this.AddTriangleSpeedButton,
             this.GroupShapesButton,
             this.UnGroupShapesButton,
-            this.PickBackgroundColor});
+            this.PickBackgroundColor,
+            this.PickBorderColor});
             this.speedMenu.Location = new System.Drawing.Point(0, 24);
             this.speedMenu.Name = "speedMenu";
             this.speedMenu.Size = new System.Drawing.Size(693, 25);
@@ -198,6 +200,17 @@
             this.UnGroupShapesButton.Text = "UnGroupShapesButton";
             this.UnGroupShapesButton.Click += new System.EventHandler(this.UnGroupShapesButton_Click);
             // 
+            // PickBackgroundColor
+            // 
+            this.PickBackgroundColor.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.PickBackgroundColor.Image = ((System.Drawing.Image)(resources.GetObject("PickBackgroundColor.Image")));
+            this.PickBackgroundColor.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.PickBackgroundColor.Name = "PickBackgroundColor";
+            this.PickBackgroundColor.Size = new System.Drawing.Size(23, 22);
+            this.PickBackgroundColor.Text = "toolStripButton1";
+            this.PickBackgroundColor.ToolTipText = "PickBackgroundColor";
+            this.PickBackgroundColor.Click += new System.EventHandler(this.PickBackgroundColor_Click);
+            // 
             // viewPort
             // 
             this.viewPort.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -210,16 +223,15 @@
             this.viewPort.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ViewPortMouseMove);
             this.viewPort.MouseUp += new System.Windows.Forms.MouseEventHandler(this.ViewPortMouseUp);
             // 
-            // PickBackgroundColor
+            // PickBorderColor
             // 
-            this.PickBackgroundColor.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.PickBackgroundColor.Image = ((System.Drawing.Image)(resources.GetObject("PickBackgroundColor.Image")));
-            this.PickBackgroundColor.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.PickBackgroundColor.Name = "PickBackgroundColor";
-            this.PickBackgroundColor.Size = new System.Drawing.Size(23, 22);
-            this.PickBackgroundColor.Text = "toolStripButton1";
-            this.PickBackgroundColor.ToolTipText = "PickBackgroundColor";
-            this.PickBackgroundColor.Click += new System.EventHandler(this.PickBackgroundColor_Click);
+            this.PickBorderColor.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.PickBorderColor.Image = ((System.Drawing.Image)(resources.GetObject("PickBorderColor.Image")));
+            this.PickBorderColor.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.PickBorderColor.Name = "PickBorderColor";
+            this.PickBorderColor.Size = new System.Drawing.Size(23, 22);
+            this.PickBorderColor.Text = "PickBorderColor";
+            this.PickBorderColor.Click += new System.EventHandler(this.PickBorderColor_Click);
             // 
             // MainForm
             // 
@@ -265,5 +277,6 @@
         private System.Windows.Forms.ToolStripButton UnGroupShapesButton;
         private System.Windows.Forms.ToolStripButton PickBackgroundColor;
         private System.Windows.Forms.ColorDialog colorDialog1;
+        private System.Windows.Forms.ToolStripButton PickBorderColor;
     }
 }
