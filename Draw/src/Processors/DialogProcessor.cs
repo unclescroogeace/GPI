@@ -104,5 +104,17 @@ namespace Draw
 
             ShapeList.Add(ellipse);
         }
+
+        public void AddRandomTriangle()
+        {
+            Random rnd = new Random();
+            int x = rnd.Next(100, 1000);
+            int y = rnd.Next(100, 600);
+
+            TriangleShape triangle = new TriangleShape(new Rectangle(x, y, 100, 200));
+            triangle.FillColor = Color.White;
+
+            ShapeList.Add(triangle);
+        }
     }
 }
