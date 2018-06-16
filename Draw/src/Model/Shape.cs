@@ -96,6 +96,11 @@ namespace Draw
 		{
 			// shape.Rectangle.Inflate(shape.BorderWidth, shape.BorderWidth);
 		}
-		
-	}
+
+        public virtual void Move(float dx, float dy)
+        {
+            Location = new PointF(Location.X + dx, Location.Y + dy);
+
+        }
+    }
 }

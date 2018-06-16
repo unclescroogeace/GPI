@@ -1,12 +1,10 @@
 ﻿using Draw.src.Model;
 using System;
+using System.Collections.Generic;
 using System.Drawing;
 
 namespace Draw
 {
-	/// <summary>
-	/// Класът, който ще бъде използван при управляване на диалога.
-	/// </summary>
 	public class DialogProcessor : DisplayProcessor
 	{
 		#region Constructor
@@ -14,33 +12,23 @@ namespace Draw
 		public DialogProcessor()
 		{
 		}
-		
-		#endregion
-		
-		#region Properties
-		
-		/// <summary>
-		/// Избран елемент.
-		/// </summary>
-		private Shape selection;
-		public Shape Selection {
+
+        #endregion
+
+        #region Properties
+        
+        private List<Shape> selection = new List<Shape>();
+		public List<Shape> Selection {
 			get { return selection; }
 			set { selection = value; }
 		}
 		
-		/// <summary>
-		/// Дали в момента диалога е в състояние на "влачене" на избрания елемент.
-		/// </summary>
 		private bool isDragging;
 		public bool IsDragging {
 			get { return isDragging; }
 			set { isDragging = value; }
 		}
-		
-		/// <summary>
-		/// Последна позиция на мишката при "влачене".
-		/// Използва се за определяне на вектора на транслация.
-		/// </summary>
+
 		private PointF lastLocation;
 		public PointF LastLocation {
 			get { return lastLocation; }
@@ -49,9 +37,6 @@ namespace Draw
 		
 		#endregion
 		
-		/// <summary>
-		/// Добавя примитив - правоъгълник на произволно място върху клиентската област.
-		/// </summary>
 		public void AddRandomRectangle()
 		{
 			Random rnd = new Random();
@@ -64,13 +49,6 @@ namespace Draw
 			ShapeList.Add(rect);
 		}
 		
-		/// <summary>
-		/// Проверява дали дадена точка е в елемента.
-		/// Обхожда в ред обратен на визуализацията с цел намиране на
-		/// "най-горния" елемент т.е. този който виждаме под мишката.
-		/// </summary>
-		/// <param name="point">Указана точка</param>
-		/// <returns>Елемента на изображението, на който принадлежи дадената точка.</returns>
 		public Shape ContainsPoint(PointF point)
 		{
 			for(int i = ShapeList.Count - 1; i >= 0; i--){
@@ -80,18 +58,15 @@ namespace Draw
 			}
 			return null;
 		}
-		
-		/// <summary>
-		/// Транслация на избраният елемент на вектор определен от <paramref name="p>p</paramref>
-		/// </summary>
-		/// <param name="p">Вектор на транслация.</param>
-		public void TranslateTo(PointF p)
-		{
-			if (selection != null) {
-				selection.Location = new PointF(selection.Location.X + p.X - lastLocation.X, selection.Location.Y + p.Y - lastLocation.Y);
-				lastLocation = p;
-			}
-		}
+
+        public void TranslateTo(PointF p)
+        {
+            foreach (var item in Selection)
+            {
+                item.Move(p.X - lastLocation.X, p.Y - lastLocation.Y);
+            }
+            lastLocation = p;
+        }
 
         public void AddRandomEllipse()
         {
@@ -115,6 +90,15 @@ namespace Draw
             triangle.FillColor = Color.White;
 
             ShapeList.Add(triangle);
+        }
+        
+        public override void Draw(Graphics grfx)
+        {
+            base.Draw(grfx);
+            foreach (var item in Selection)
+            {
+                grfx.DrawRectangle(Pens.Black, item.Rectangle.Left - 3, item.Rectangle.Top - 3, item.Rectangle.Width + 6, item.Rectangle.Height + 6);
+            }
         }
     }
 }
