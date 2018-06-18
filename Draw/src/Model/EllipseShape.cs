@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace Draw.src.Model
 {
+    [Serializable]
     class EllipseShape : Shape
     {
         #region Constructor

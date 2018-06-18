@@ -3,10 +3,12 @@ using System.Drawing;
 
 namespace Draw
 {
-	/// <summary>
-	/// Класът правоъгълник е основен примитив, който е наследник на базовия Shape.
-	/// </summary>
-	public class RectangleShape : Shape
+    /// <summary>
+    /// Класът правоъгълник е основен примитив, който е наследник на базовия Shape.
+    /// </summary>
+
+    [Serializable]
+    public class RectangleShape : Shape
 	{
 		#region Constructor
 		

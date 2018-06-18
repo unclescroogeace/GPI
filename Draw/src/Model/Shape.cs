@@ -3,10 +3,12 @@ using System.Drawing;
 
 namespace Draw
 {
-	/// <summary>
-	/// Базовия клас на примитивите, който съдържа общите характеристики на примитивите.
-	/// </summary>
-	public abstract class Shape
+    /// <summary>
+    /// Базовия клас на примитивите, който съдържа общите характеристики на примитивите.
+    /// </summary>
+    
+    [Serializable]
+    public abstract class Shape
 	{
 		#region Constructors
 		

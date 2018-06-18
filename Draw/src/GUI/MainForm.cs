@@ -51,7 +51,7 @@ namespace Draw
             viewPort.Invalidate();
         }
 
-        void ViewPortMouseDown(object sender, System.Windows.Forms.MouseEventArgs e)
+        void ViewPortMouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Right)
             {
@@ -75,7 +75,7 @@ namespace Draw
             }
 		}
         
-		void ViewPortMouseMove(object sender, System.Windows.Forms.MouseEventArgs e)
+		void ViewPortMouseMove(object sender, MouseEventArgs e)
 		{
 			if (dialogProcessor.IsDragging) {
 				if (dialogProcessor.Selection != null) statusBar.Items[0].Text = "Последно действие: Влачене";
@@ -84,7 +84,7 @@ namespace Draw
 			}
 		}
 
-		void ViewPortMouseUp(object sender, System.Windows.Forms.MouseEventArgs e)
+		void ViewPortMouseUp(object sender, MouseEventArgs e)
 		{
 			dialogProcessor.IsDragging = false;
 		}
@@ -105,7 +105,7 @@ namespace Draw
 
         private void PickBackgroundColor_Click(object sender, EventArgs e)
         {
-            if (colorDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            if (colorDialog1.ShowDialog() == DialogResult.OK)
             {
                 dialogProcessor.SetFillColor(colorDialog1.Color);
                 viewPort.Invalidate();
@@ -114,7 +114,7 @@ namespace Draw
 
         private void PickBorderColor_Click(object sender, EventArgs e)
         {
-            if (colorDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            if (colorDialog1.ShowDialog() == DialogResult.OK)
             {
                 dialogProcessor.SetBorderColor(colorDialog1.Color);
                 viewPort.Invalidate();
@@ -126,6 +126,39 @@ namespace Draw
             dialogProcessor.SetOpacity(trackBar1.Value);
             statusBar.Items[0].Text = "Последно действие: Добавяне на прозрачност";
             viewPort.Invalidate();
+        }
+
+        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                dialogProcessor.MySerialize(dialogProcessor.ShapeList, saveFileDialog1.FileName);
+            }
+        }
+
+        private void openToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                dialogProcessor.ShapeList = (List<Shape>)dialogProcessor.MyDeSerialize(openFileDialog1.FileName);
+                viewPort.Invalidate();
+            }
+        }
+
+        private void newToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (dialogProcessor.ShapeList.Count > 0)
+            {
+                if (MessageBox.Show("Do you want to save changes?", "Save", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+                    {
+                        dialogProcessor.MySerialize(dialogProcessor.ShapeList, saveFileDialog1.FileName);
+                    }
+                }
+                dialogProcessor.ShapeList.Clear();
+                viewPort.Invalidate();
+            }
         }
     }
 }

@@ -2,6 +2,9 @@
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
 
 namespace Draw
 {
@@ -191,6 +194,43 @@ namespace Draw
                 item.Opacity = opacity;
 
             }
+        }
+
+        public void MySerialize(object obj, string filePath = null)
+        {
+            IFormatter formatter = new BinaryFormatter();
+            Stream stream;
+            if (filePath != null)
+            {
+                stream = new FileStream(filePath + ".drw", FileMode.Create);
+            }
+            else
+            {
+                stream = new FileStream("MyFile.drw", FileMode.Create, FileAccess.Write, FileShare.None);
+            }
+            formatter.Serialize(stream, obj);
+            stream.Close();
+        }
+
+        public object MyDeSerialize(string filePath = null)
+        {
+            object obj;
+            IFormatter formatter = new BinaryFormatter();
+            Stream stream;
+            if (filePath != null)
+            {
+                stream = new FileStream(filePath,
+                                     FileMode.Open,
+                                     FileAccess.Read, FileShare.None);
+            }
+            else
+            {
+                stream = new FileStream("MyFile.drw",
+                                    FileMode.Open);
+            }
+            obj = formatter.Deserialize(stream);
+            stream.Close();
+            return obj;
         }
     }
 }
