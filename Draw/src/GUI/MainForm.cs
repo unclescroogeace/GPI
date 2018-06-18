@@ -160,5 +160,17 @@ namespace Draw
                 viewPort.Invalidate();
             }
         }
+
+        private void btnAddString_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(textBoxString.Text))
+            {
+                dialogProcessor.AddRandomString(textBoxString.Text);
+
+                statusBar.Items[0].Text = "Последно действие: Рисуване на тектс";
+
+                viewPort.Invalidate();
+            }
+        }
     }
 }

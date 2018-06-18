@@ -90,6 +90,13 @@ namespace Draw
             set { opacity = value; }
         }
 
+        private string text;
+        public virtual string Text
+        {
+            get { return text; }
+            set { text = value; }
+        }
+
         #endregion
 
 

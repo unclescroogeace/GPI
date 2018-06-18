@@ -53,8 +53,10 @@
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.viewPort = new Draw.DoubleBufferedPanel();
             this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewPort = new Draw.DoubleBufferedPanel();
+            this.textBoxString = new System.Windows.Forms.TextBox();
+            this.btnAddString = new System.Windows.Forms.Button();
             this.mainMenu.SuspendLayout();
             this.statusBar.SuspendLayout();
             this.speedMenu.SuspendLayout();
@@ -70,7 +72,7 @@
             this.helpToolStripMenuItem});
             this.mainMenu.Location = new System.Drawing.Point(0, 0);
             this.mainMenu.Name = "mainMenu";
-            this.mainMenu.Size = new System.Drawing.Size(693, 24);
+            this.mainMenu.Size = new System.Drawing.Size(811, 24);
             this.mainMenu.TabIndex = 1;
             this.mainMenu.Text = "menuStrip1";
             // 
@@ -129,9 +131,9 @@
             // 
             this.statusBar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.currentStatusLabel});
-            this.statusBar.Location = new System.Drawing.Point(0, 401);
+            this.statusBar.Location = new System.Drawing.Point(0, 408);
             this.statusBar.Name = "statusBar";
-            this.statusBar.Size = new System.Drawing.Size(693, 22);
+            this.statusBar.Size = new System.Drawing.Size(811, 22);
             this.statusBar.TabIndex = 2;
             this.statusBar.Text = "statusStrip1";
             // 
@@ -153,7 +155,7 @@
             this.PickBorderColor});
             this.speedMenu.Location = new System.Drawing.Point(0, 24);
             this.speedMenu.Name = "speedMenu";
-            this.speedMenu.Size = new System.Drawing.Size(693, 25);
+            this.speedMenu.Size = new System.Drawing.Size(811, 25);
             this.speedMenu.TabIndex = 3;
             this.speedMenu.Text = "toolStrip1";
             // 
@@ -240,10 +242,10 @@
             // 
             // trackBar1
             // 
-            this.trackBar1.Location = new System.Drawing.Point(201, 0);
+            this.trackBar1.Location = new System.Drawing.Point(232, 0);
             this.trackBar1.Maximum = 255;
             this.trackBar1.Name = "trackBar1";
-            this.trackBar1.Size = new System.Drawing.Size(104, 45);
+            this.trackBar1.Size = new System.Drawing.Size(107, 45);
             this.trackBar1.TabIndex = 5;
             this.trackBar1.TickStyle = System.Windows.Forms.TickStyle.None;
             this.trackBar1.Value = 255;
@@ -260,18 +262,6 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
-            // viewPort
-            // 
-            this.viewPort.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.viewPort.Location = new System.Drawing.Point(0, 49);
-            this.viewPort.Name = "viewPort";
-            this.viewPort.Size = new System.Drawing.Size(693, 352);
-            this.viewPort.TabIndex = 4;
-            this.viewPort.Paint += new System.Windows.Forms.PaintEventHandler(this.ViewPortPaint);
-            this.viewPort.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ViewPortMouseDown);
-            this.viewPort.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ViewPortMouseMove);
-            this.viewPort.MouseUp += new System.Windows.Forms.MouseEventHandler(this.ViewPortMouseUp);
-            // 
             // newToolStripMenuItem
             // 
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
@@ -279,11 +269,42 @@
             this.newToolStripMenuItem.Text = "New";
             this.newToolStripMenuItem.Click += new System.EventHandler(this.newToolStripMenuItem_Click);
             // 
+            // viewPort
+            // 
+            this.viewPort.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.viewPort.Location = new System.Drawing.Point(0, 49);
+            this.viewPort.Name = "viewPort";
+            this.viewPort.Size = new System.Drawing.Size(811, 359);
+            this.viewPort.TabIndex = 4;
+            this.viewPort.Paint += new System.Windows.Forms.PaintEventHandler(this.ViewPortPaint);
+            this.viewPort.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ViewPortMouseDown);
+            this.viewPort.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ViewPortMouseMove);
+            this.viewPort.MouseUp += new System.Windows.Forms.MouseEventHandler(this.ViewPortMouseUp);
+            // 
+            // textBoxString
+            // 
+            this.textBoxString.Location = new System.Drawing.Point(505, 11);
+            this.textBoxString.Name = "textBoxString";
+            this.textBoxString.Size = new System.Drawing.Size(133, 20);
+            this.textBoxString.TabIndex = 6;
+            // 
+            // btnAddString
+            // 
+            this.btnAddString.Location = new System.Drawing.Point(654, 9);
+            this.btnAddString.Name = "btnAddString";
+            this.btnAddString.Size = new System.Drawing.Size(75, 23);
+            this.btnAddString.TabIndex = 7;
+            this.btnAddString.Text = "Add Text";
+            this.btnAddString.UseVisualStyleBackColor = true;
+            this.btnAddString.Click += new System.EventHandler(this.btnAddString_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(693, 423);
+            this.ClientSize = new System.Drawing.Size(811, 430);
+            this.Controls.Add(this.btnAddString);
+            this.Controls.Add(this.textBoxString);
             this.Controls.Add(this.trackBar1);
             this.Controls.Add(this.viewPort);
             this.Controls.Add(this.speedMenu);
@@ -332,5 +353,7 @@
         private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.ToolStripMenuItem newToolStripMenuItem;
+        private System.Windows.Forms.TextBox textBoxString;
+        private System.Windows.Forms.Button btnAddString;
     }
 }

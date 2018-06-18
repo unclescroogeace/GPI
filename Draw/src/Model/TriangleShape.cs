@@ -39,10 +39,7 @@ namespace Draw.src.Model
                 // Ако не е в обхващащия правоъгълник, то неможе да е в обекта и => false
                 return false;
         }
-
-        /// <summary>
-        /// Частта, визуализираща конкретния примитив.
-        /// </summary>
+        
         public override void DrawSelf(Graphics grfx)
         {
 
@@ -51,7 +48,6 @@ namespace Draw.src.Model
             Point[] p = { new Point((int)Rectangle.X + ((int)Rectangle.Width / 2), (int)Rectangle.Y), new Point((int)Rectangle.X, (int)(Rectangle.Y + Rectangle.Height)), new Point((int)(Rectangle.X + Rectangle.Width), (int)(Rectangle.Y + Rectangle.Height)) };
             grfx.FillPolygon(new SolidBrush(Color.FromArgb(Opacity, FillColor)), p);
             grfx.DrawPolygon(new Pen(BorderColor), p);
-            
         }
     }
 }

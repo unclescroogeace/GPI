@@ -5,6 +5,7 @@ using System.Drawing;
 using System.IO;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
+using System.Windows.Forms;
 
 namespace Draw
 {
@@ -100,7 +101,24 @@ namespace Draw
 
             ShapeList.Add(triangle);
         }
-        
+
+        public void AddRandomString(string text)
+        {
+            Random rnd = new Random();
+            int x = rnd.Next(100, 1000);
+            int y = rnd.Next(100, 600);
+
+            SizeF stringSize = new SizeF();
+            stringSize = TextRenderer.MeasureText(text, new Font("Arial", 16));
+
+            StringShape stringShape = new StringShape(new Rectangle(x, y, (int)stringSize.Width, (int)stringSize.Height));
+            stringShape.Text = text;
+            stringShape.FillColor = Color.Black;
+            stringShape.Opacity = 255;
+
+            ShapeList.Add(stringShape);
+        }
+
         public override void Draw(Graphics grfx)
         {
             base.Draw(grfx);
