@@ -193,5 +193,10 @@ namespace Draw
             statusBar.Items[0].Text = "Последно действие: Завъртане";
             viewPort.Invalidate();
         }
+
+        private void заНасToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Draw Inc.", "За нас", MessageBoxButtons.OK);
+        }
     }
 }
