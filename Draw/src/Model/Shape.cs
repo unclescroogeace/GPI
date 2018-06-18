@@ -97,6 +97,13 @@ namespace Draw
             set { text = value; }
         }
 
+        private float angle;
+        public virtual float Angle
+        {
+            get { return angle; }
+            set { angle = value; }
+        }
+
         #endregion
 
 
@@ -117,7 +124,7 @@ namespace Draw
 		/// <param name="grfx">Къде да бъде визуализиран елемента.</param>
 		public virtual void DrawSelf(Graphics grfx)
 		{
-			// shape.Rectangle.Inflate(shape.BorderWidth, shape.BorderWidth);
+			//shape.Rectangle.Inflate(shape.BorderWidth, shape.BorderWidth);
 		}
 
         public virtual void Move(float dx, float dy)
@@ -129,6 +136,18 @@ namespace Draw
         public virtual void GroupOpacity(int opacity)
         {
             this.opacity = opacity;
+        }
+
+        public virtual void GroupRotate(float angle)
+        {
+            this.Angle = angle;
+        }
+        
+        public virtual void RotateShape(Graphics grfx)
+        {
+            grfx.TranslateTransform(Rectangle.X + Rectangle.Width / 2, Rectangle.Y + Rectangle.Height / 2);
+            grfx.RotateTransform(Angle);
+            grfx.TranslateTransform(-(Rectangle.X + Rectangle.Width / 2), -(Rectangle.Y + Rectangle.Height / 2));
         }
     }
 }

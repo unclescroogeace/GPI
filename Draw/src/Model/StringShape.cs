@@ -34,9 +34,12 @@ namespace Draw.src.Model
         public override void DrawSelf(Graphics grfx)
         {
             base.DrawSelf(grfx);
+            base.RotateShape(grfx);
 
             Font drawFont = new Font("Arial", 16);
             grfx.DrawString(Text, drawFont, new SolidBrush(Color.FromArgb(Opacity, FillColor)), Rectangle.X, Rectangle.Y);
+
+            grfx.ResetTransform();
         }
     }
 }

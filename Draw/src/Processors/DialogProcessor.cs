@@ -124,8 +124,11 @@ namespace Draw
             base.Draw(grfx);
             foreach (var item in Selection)
             {
+                item.RotateShape(grfx);
                 grfx.DrawRectangle(Pens.Black, item.Rectangle.Left - 3, item.Rectangle.Top - 3, item.Rectangle.Width + 6, item.Rectangle.Height + 6);
+                grfx.ResetTransform();
             }
+
         }
 
         public void SetFillColor(Color color)
@@ -258,6 +261,18 @@ namespace Draw
                 ShapeList.Remove(item);
             }
             Selection.Clear();
+        }
+
+        public void Rotate(float angle)
+        {
+            if (Selection.Count != 0)
+            {
+                foreach (var item in Selection)
+                {
+                    item.GroupRotate(angle);
+                    item.Angle = angle;
+                }
+            }
         }
     }
 }

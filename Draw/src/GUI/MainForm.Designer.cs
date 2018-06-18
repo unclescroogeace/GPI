@@ -59,10 +59,13 @@
             this.btnDelete = new System.Windows.Forms.Button();
             this.viewPort = new Draw.DoubleBufferedPanel();
             this.label1 = new System.Windows.Forms.Label();
+            this.trackBar2 = new System.Windows.Forms.TrackBar();
+            this.label2 = new System.Windows.Forms.Label();
             this.mainMenu.SuspendLayout();
             this.statusBar.SuspendLayout();
             this.speedMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar2)).BeginInit();
             this.SuspendLayout();
             // 
             // mainMenu
@@ -319,11 +322,32 @@
             this.label1.TabIndex = 9;
             this.label1.Text = "Прозрачност";
             // 
+            // trackBar2
+            // 
+            this.trackBar2.Location = new System.Drawing.Point(345, 0);
+            this.trackBar2.Maximum = 360;
+            this.trackBar2.Name = "trackBar2";
+            this.trackBar2.Size = new System.Drawing.Size(104, 45);
+            this.trackBar2.TabIndex = 10;
+            this.trackBar2.TickStyle = System.Windows.Forms.TickStyle.None;
+            this.trackBar2.Scroll += new System.EventHandler(this.trackBar2_Scroll);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(363, 23);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(62, 13);
+            this.label2.TabIndex = 11;
+            this.label2.Text = "Завъртане";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1098, 430);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.trackBar2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnAddString);
@@ -345,6 +369,7 @@
             this.speedMenu.ResumeLayout(false);
             this.speedMenu.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -380,5 +405,7 @@
         private System.Windows.Forms.Button btnAddString;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TrackBar trackBar2;
+        private System.Windows.Forms.Label label2;
     }
 }

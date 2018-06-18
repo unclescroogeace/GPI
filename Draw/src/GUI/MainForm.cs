@@ -186,5 +186,12 @@ namespace Draw
             statusBar.Items[0].Text = "Последно действие: Изтриване на селектираните примитиви";
             viewPort.Invalidate();
         }
+
+        private void trackBar2_Scroll(object sender, EventArgs e)
+        {
+            dialogProcessor.Rotate((float)trackBar2.Value);
+            statusBar.Items[0].Text = "Последно действие: Завъртане";
+            viewPort.Invalidate();
+        }
     }
 }

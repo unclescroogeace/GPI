@@ -106,5 +106,14 @@ namespace Draw
                 item.Opacity = opacity;
             }
         }
+
+        public override void GroupRotate(float angle)
+        {
+            base.GroupRotate(angle);
+            foreach (var item in SubItems)
+            {
+                item.Angle = angle;
+            }
+        }
     }
 }

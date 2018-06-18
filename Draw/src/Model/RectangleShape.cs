@@ -46,10 +46,12 @@ namespace Draw
 		public override void DrawSelf(Graphics grfx)
 		{
 			base.DrawSelf(grfx);
-			
+            base.RotateShape(grfx);
+
 			grfx.FillRectangle(new SolidBrush(Color.FromArgb(Opacity, FillColor)), Rectangle.X, Rectangle.Y, Rectangle.Width, Rectangle.Height);
 			grfx.DrawRectangle(new Pen(BorderColor), Rectangle.X, Rectangle.Y, Rectangle.Width, Rectangle.Height);
-			
+
+            grfx.ResetTransform();
 		}
 	}
 }
