@@ -250,5 +250,14 @@ namespace Draw
             stream.Close();
             return obj;
         }
+
+        internal void DeleteSelected()
+        {
+            foreach (var item in Selection)
+            {
+                ShapeList.Remove(item);
+            }
+            Selection.Clear();
+        }
     }
 }

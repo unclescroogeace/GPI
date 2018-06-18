@@ -62,9 +62,13 @@ namespace Draw
                     if (sel != null)
                     {
                         if (dialogProcessor.Selection.Contains(sel))
+                        {
                             dialogProcessor.Selection.Remove(sel);
+                        }
                         else
+                        {
                             dialogProcessor.Selection.Add(sel);
+                        }
 
                         statusBar.Items[0].Text = "Последно действие: Селекция на примитив";
                         dialogProcessor.IsDragging = true;
@@ -108,6 +112,7 @@ namespace Draw
             if (colorDialog1.ShowDialog() == DialogResult.OK)
             {
                 dialogProcessor.SetFillColor(colorDialog1.Color);
+                statusBar.Items[0].Text = "Последно действие: Смяна на цвета";
                 viewPort.Invalidate();
             }
         }
@@ -117,6 +122,7 @@ namespace Draw
             if (colorDialog1.ShowDialog() == DialogResult.OK)
             {
                 dialogProcessor.SetBorderColor(colorDialog1.Color);
+                statusBar.Items[0].Text = "Последно действие: Смяна на цвета на границата";
                 viewPort.Invalidate();
             }
         }
@@ -133,6 +139,7 @@ namespace Draw
             if (saveFileDialog1.ShowDialog() == DialogResult.OK)
             {
                 dialogProcessor.MySerialize(dialogProcessor.ShapeList, saveFileDialog1.FileName);
+                statusBar.Items[0].Text = "Последно действие: Запазване";
             }
         }
 
@@ -141,6 +148,7 @@ namespace Draw
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
                 dialogProcessor.ShapeList = (List<Shape>)dialogProcessor.MyDeSerialize(openFileDialog1.FileName);
+                statusBar.Items[0].Text = "Последно действие: Отваряне";
                 viewPort.Invalidate();
             }
         }
@@ -149,11 +157,12 @@ namespace Draw
         {
             if (dialogProcessor.ShapeList.Count > 0)
             {
-                if (MessageBox.Show("Do you want to save changes?", "Save", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                if (MessageBox.Show("Искате ли да запаметите промените?", "Запаметяване", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
                     if (saveFileDialog1.ShowDialog() == DialogResult.OK)
                     {
                         dialogProcessor.MySerialize(dialogProcessor.ShapeList, saveFileDialog1.FileName);
+                        statusBar.Items[0].Text = "Последно действие: Изчистване на работното място";
                     }
                 }
                 dialogProcessor.ShapeList.Clear();
@@ -166,11 +175,16 @@ namespace Draw
             if (!string.IsNullOrEmpty(textBoxString.Text))
             {
                 dialogProcessor.AddRandomString(textBoxString.Text);
-
                 statusBar.Items[0].Text = "Последно действие: Рисуване на тектс";
-
                 viewPort.Invalidate();
             }
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            dialogProcessor.DeleteSelected();
+            statusBar.Items[0].Text = "Последно действие: Изтриване на селектираните примитиви";
+            viewPort.Invalidate();
         }
     }
 }
