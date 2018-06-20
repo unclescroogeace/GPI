@@ -88,6 +88,18 @@ namespace Draw
             ShapeList.Add(ellipse);
         }
 
+        public void AddRandomX()
+        {
+            Random rnd = new Random();
+            int x = rnd.Next(100, 1000);
+            int y = rnd.Next(100, 600);
+
+            XShape xShape = new XShape(new Rectangle(x, y, 200, 100));
+            xShape.BorderColor = Color.Black;
+
+            ShapeList.Add(xShape);
+        }
+
         public void AddRandomTriangle()
         {
             Random rnd = new Random();

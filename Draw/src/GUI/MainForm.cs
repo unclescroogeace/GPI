@@ -198,5 +198,14 @@ namespace Draw
         {
             MessageBox.Show("Draw Inc.", "За нас", MessageBoxButtons.OK);
         }
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            dialogProcessor.AddRandomX();
+
+            statusBar.Items[0].Text = "Последно действие: Рисуване на X";
+
+            viewPort.Invalidate();
+        }
     }
 }
